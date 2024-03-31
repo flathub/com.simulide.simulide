@@ -16,15 +16,15 @@ modules:
     subdir: build_XX
     sources:
       - type: archive
-        url: https://launchpad.net/simulide/1.0.0/1.0.0-sr2/+download/simulide_1.0.0-SR2_sources.zip
-        md5: 21da2dd7af49a92169fb7fb3df199f22
+        url: https://launchpad.net/simulide/1.1.0/1.1.0-sr0/+download/SimulIDE_1.1.0-SR0_sources.zip
+        sha256: 2414076b496175c60dfc6a29be84269edd4a347aec29a9aa73b176982b5280d5
     post-install:
-      - install -Dm755 -t /app/bin/ ./executables/SimulIDE_1.0.0-SR2/simulide
+      - install -Dm755 -t /app/bin/ ./executables/SimulIDE_1.1.0-SR0/simulide
       - install -d /app/share/simulide/
-      - cp -r ./executables/SimulIDE_1.0.0-SR2/data /app/share/simulide
-      - cp -r ./executables/SimulIDE_1.0.0-SR2/examples /app/share/simulide
-      - install -d /app/share/simulide/translations/
-      - cp ../resources/translations/*.qm /app/share/simulide/translations/
+      - cp -r ./executables/SimulIDE_1.1.0-SR0/data /app/share/simulide
+      - cp -r ./executables/SimulIDE_1.1.0-SR0/examples /app/share/simulide
+      - install -d /app/share/simulide/
+      - cp ../resources/qm/simulide_*.qm /app/share/simulide/
       - install -Dm644 ../resources/icons/simulide.png -t /app/share/icons/hicolor/256x256/apps/
       - install -D ../resources/simulide.desktop /app/share/applications/com.simulide.simulide.desktop
       - install -D ../resources/com.simulide.simulide.metainfo.xml /app/share/metainfo/com.simulide.simulide.metainfo.xml
