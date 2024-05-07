@@ -23,7 +23,6 @@ modules:
       - install -d /app/share/simulide/
       - cp -r ./executables/SimulIDE_1.1.0-SR0/data /app/share/simulide
       - cp -r ./executables/SimulIDE_1.1.0-SR0/examples /app/share/simulide
-      - install -d /app/share/simulide/
       - cp ../resources/qm/simulide_*.qm /app/share/simulide/
       - install -Dm644 ../resources/icons/simulide.png -t /app/share/icons/hicolor/256x256/apps/
       - install -D ../resources/simulide.desktop /app/share/applications/com.simulide.simulide.desktop
