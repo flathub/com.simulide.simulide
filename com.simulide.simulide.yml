@@ -1,6 +1,6 @@
 id: com.simulide.simulide
 runtime: org.kde.Platform
-runtime-version: '5.15-23.08'
+runtime-version: "5.15-23.08"
 sdk: org.kde.Sdk
 command: simulide
 rename-icon: "simulide"
@@ -13,17 +13,17 @@ finish-args:
 modules:
   - name: simulide
     buildsystem: qmake
-    subdir: build_XX
+    subdir: simulide/1.1.0/build_XX
     sources:
       - type: archive
-        url: https://launchpad.net/simulide/1.1.0/1.1.0-sr0/+download/SimulIDE_1.1.0-SR0_sources.zip
-        sha256: 2414076b496175c60dfc6a29be84269edd4a347aec29a9aa73b176982b5280d5
+        archive-type: tar-gzip
+        url: https://bazaar.launchpad.net/~arcachofo/simulide/1.1.0/tarball/2005
+        sha256: b7f0094dd1dbeca7c18d2c249314d06338c65f705601de9195e52be61471ed81
     post-install:
-      - install -Dm755 -t /app/bin/ ./executables/SimulIDE_1.1.0-SR0/simulide
+      - install -Dm755 -t /app/bin/ ./executables/SimulIDE_1.1.0-SR1/simulide
       - install -d /app/share/simulide/
-      - cp -r ./executables/SimulIDE_1.1.0-SR0/data /app/share/simulide
-      - cp -r ./executables/SimulIDE_1.1.0-SR0/examples /app/share/simulide
-      - install -d /app/share/simulide/
+      - cp -r ./executables/SimulIDE_1.1.0-SR1/data /app/share/simulide
+      - cp -r ./executables/SimulIDE_1.1.0-SR1/examples /app/share/simulide
       - cp ../resources/qm/simulide_*.qm /app/share/simulide/
       - install -Dm644 ../resources/icons/simulide.png -t /app/share/icons/hicolor/256x256/apps/
       - install -D ../resources/simulide.desktop /app/share/applications/com.simulide.simulide.desktop
