@@ -13,12 +13,11 @@ finish-args:
 modules:
   - name: simulide
     buildsystem: qmake
-    subdir: simulide/1.1.0/build_XX
+    subdir: build_XX
     sources:
-      - type: archive
-        archive-type: tar-gzip
-        url: https://bazaar.launchpad.net/~arcachofo/simulide/1.1.0/tarball/2005
-        sha256: b7f0094dd1dbeca7c18d2c249314d06338c65f705601de9195e52be61471ed81
+      - type: git
+        url: https://git.launchpad.net/simulide/
+        commit: 7f5ced1fdafd859e13fe68a12459fa6143561227
     post-install:
       - install -Dm755 -t ${FLATPAK_DEST}/bin/ ./executables/SimulIDE_1.1.0-SR1/simulide
       - install -d ${FLATPAK_DEST}/share/simulide/
