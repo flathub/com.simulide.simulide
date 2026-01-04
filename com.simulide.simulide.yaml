@@ -19,6 +19,8 @@ modules:
       - type: git
         url: https://git.launchpad.net/simulide/
         commit: 7f5ced1fdafd859e13fe68a12459fa6143561227
+      - type: patch
+        path: patches/fix-mcucreator-vector-out-of-bounds-write.patch
     post-install:
       - install -Dm755 -t ${FLATPAK_DEST}/bin/ ./executables/SimulIDE_1.1.0-SR1/simulide
       - install -d ${FLATPAK_DEST}/share/simulide/

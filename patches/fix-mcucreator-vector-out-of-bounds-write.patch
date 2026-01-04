@@ -1,0 +1,41 @@
+diff --git a/src/microsim/mcucreator.cpp b/src/microsim/mcucreator.cpp
+--- a/src/microsim/mcucreator.cpp
++++ b/src/microsim/mcucreator.cpp
+@@ -404,7 +404,7 @@ void McuCreator::createDataBlock( QDomElement* d )
+ 
+     for( int i=datStart; i<=datEnd; ++i )
+     {
+-        mcu->m_addrMap[i] = mapTo;
++        mcu->m_addrMap.at(i) = mapTo;
+         mapTo++;
+     }
+     getRegisters( d );
+@@ -427,14 +427,15 @@ void McuCreator::createRegisters( QDomElement* e )
+     if( regEnd   > mcu->m_regEnd )
+     {
+         mcu->m_regEnd = regEnd;
+-        mcu->m_regMask.resize( regEnd, 0xFF );
++        mcu->m_regMask.resize( regEnd+1, 0xFF );
+     }
+     getRegisters( e, offset );
+ }
++
+ void McuCreator::getRegisters( QDomElement* e, uint16_t offset )
+ {
+     QString stReg;
+-    if( e->hasAttribute( "streg" ) ) stReg = e->attribute( "streg" );
++    if( e->hasAttribute("streg") ) stReg = e->attribute("streg");
+ 
+     QDomNode node = e->firstChild();
+     while( !node.isNull() ) // Create Registers
+@@ -457,8 +458,8 @@ void McuCreator::getRegisters( QDomElement* e, uint16_t offset )
+                 QString    wMask = el.attribute("mask");
+                 QString     bits = el.attribute("bits");
+ 
+-                if( !wMask.isEmpty() ) mcu->m_regMask[regAddr] = wMask.toUInt(0,2);
+-                mcu->m_addrMap[regAddr] = regAddr;
++                if( !wMask.isEmpty() ) mcu->m_regMask.at(regAddr) = wMask.toUInt(0,2);
++                mcu->m_addrMap.at(regAddr) = regAddr;
+ 
+                 regInfo_t regInfo = { regAddr, resetVal/*, writeMask*/ };
+                 mcu->m_regInfo.insert( regName, regInfo );
