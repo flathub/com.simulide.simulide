@@ -17,15 +17,13 @@ modules:
     subdir: build_XX
     sources:
       - type: git
-        url: https://git.launchpad.net/simulide/
-        commit: 7f5ced1fdafd859e13fe68a12459fa6143561227
-      - type: patch
-        path: patches/fix-mcucreator-vector-out-of-bounds-write.patch
+        url: https://github.com/Arcachofo/SimuliDE-1
+        commit: 28965e3bd6dd118598db1f5639ce1cf2e3c56e36
     post-install:
-      - install -Dm755 -t ${FLATPAK_DEST}/bin/ ./executables/SimulIDE_1.1.0-SR1/simulide
+      - install -Dm755 -t ${FLATPAK_DEST}/bin/ ./executables/SimulIDE_1.1.0-SR2/simulide
       - install -d ${FLATPAK_DEST}/share/simulide/
-      - cp -r ./executables/SimulIDE_1.1.0-SR1/data ${FLATPAK_DEST}/share/simulide
-      - cp -r ./executables/SimulIDE_1.1.0-SR1/examples ${FLATPAK_DEST}/share/simulide
+      - cp -r ./executables/SimulIDE_1.1.0-SR2/data ${FLATPAK_DEST}/share/simulide
+      - cp -r ./executables/SimulIDE_1.1.0-SR2/examples ${FLATPAK_DEST}/share/simulide
       - cp ../resources/qm/simulide_*.qm ${FLATPAK_DEST}/share/simulide/
       - install -Dm644 ../resources/icons/simulide.png -t ${FLATPAK_DEST}/share/icons/hicolor/256x256/apps/
       - install -D ../resources/simulide.desktop ${FLATPAK_DEST}/share/applications/com.simulide.simulide.desktop
