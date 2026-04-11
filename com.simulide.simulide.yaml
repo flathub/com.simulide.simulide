@@ -18,9 +18,7 @@ modules:
     sources:
       - type: git
         url: https://github.com/Arcachofo/SimuliDE-1
-        commit: 28965e3bd6dd118598db1f5639ce1cf2e3c56e36
-      - type: patch
-        path: fix-appdata.patch
+        commit: b169436c472515818fece8d9eb44b24814b20e75 
     post-install:
       - install -Dm755 -t ${FLATPAK_DEST}/bin/ ./executables/SimulIDE_1.1.0-SR2/simulide
       - install -d ${FLATPAK_DEST}/share/simulide/
